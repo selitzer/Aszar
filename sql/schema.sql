@@ -1,0 +1,34 @@
+CREATE DATABASE IF NOT EXISTS rollix;
+USE rollix;
+
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(32) NOT NULL UNIQUE,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE wallets (
+  user_id INT PRIMARY KEY,
+  balance DECIMAL(12,2) NOT NULL DEFAULT 1000.00,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_wallet_user
+    FOREIGN KEY (user_id) REFERENCES users(id)
+    ON DELETE CASCADE
+);
+
+CREATE TABLE games (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  game_type VARCHAR(32) NOT NULL,
+  bet_amount DECIMAL(12,2) NOT NULL,
+  result ENUM('win','loss','push') NOT NULL,
+  payout DECIMAL(12,2) NOT NULL,
+  metadata_json JSON NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_games_user (user_id),
+  CONSTRAINT fk_games_user
+    FOREIGN KEY (user_id) REFERENCES users(id)
+    ON DELETE CASCADE
+);

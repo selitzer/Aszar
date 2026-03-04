@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aszar • Roulette</title>
+  <link rel="stylesheet" href="/css/roulette.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="appLoader">
+        <div id="appLoader">
+          <img class="logoLoader" src="/assets/logo.png" alt="Rollix" />
+      </div>
+    </div>
+      <div id="appRoot">
+         <header class="topbar">
+  <div class="topbar-left">
+    <a class="brand" href="/dashboard" aria-label="Rollix Dashboard">
+      <img class="brand-logo" src="/assets/logo.png" alt="Rollix" />
+    </a>
+  </div>
+
+  <div class="topbar-right">
+ <div class="profile-menu-wrap wallet-menu-wrap" id="walletMenuWrap">
+  <div class="wallet-group">
+    <button class="wallet-balance" id="walletToggleBtn" type="button">
+      <span class="wallet-amount" id="balance">0</span>
+      <span class="wallet-unit" id="balanceUnit"></span>
+    </button>
+
+    <button class="wallet-action" id="depositBtn" type="button"
+      aria-haspopup="menu" aria-expanded="false">
+      Wallet
+    </button>
+  </div>
+
+  <div class="profile-menu" id="walletMenu" role="menu" aria-label="Wallet menu">
+    <button class="profile-menu-item" role="menuitem" type="button" data-action="daily">
+      Daily rewards
+    </button>
+
+    <div class="profile-menu-sep" role="separator" aria-hidden="true"></div>
+
+      <button class="profile-menu-item" id="balanceMenu" role="menuitem" type="button" data-action="balanceSettings">
+  Balance settings
+</button>
+  </div>
+</div>
+
+  <div class="profile-menu-wrap" id="profileMenuWrap">
+  <button class="profile-btn" id="profileBtn" type="button" aria-label="Profile" aria-haspopup="menu" aria-expanded="false">
+    <svg class="profile-icon" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M4 20c0-4.2 3.6-7 8-7s8 2.8 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="profile-menu" id="profileMenu" role="menu" aria-label="Profile menu">
+    <button class="profile-menu-item" role="menuitem" type="button" data-action="account">
+      Account settings
+    </button>
+
+    <div class="profile-menu-sep" role="separator" aria-hidden="true"></div>
+
+    <button class="profile-menu-item danger" role="menuitem" type="button" data-action="logout">
+      Logout
+    </button>
+  </div>
+</div>
+  </div>
+</header>
+  <main class="page">
+    <section class="rl-wrap" aria-label="Blackjack table">
+      <div class="rl-table">
+<div class="rl-topbar">
+  <div class="rl-topbar-left">
+    <span class="rl-game-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path d="M115.777 95.128a17.052 17.052 0 0 1 3.059.941c4.779-4.131 8.287-9.414 8.16-16.052-.263-11.154-11.645-18.08-20.903-21.546a76.456 76.456 0 0 0-8.377-2.584 125.55 125.55 0 0 0-19.687-3.322c.054 2.057.06 4.065.012 6.002a4.213 4.213 0 0 0 1.313 3.136l.462.402a81.746 81.746 0 0 1 14.908 3.706 53.774 53.774 0 0 1 13.18 6.59c2.309 1.661 6.044 4.342 5.733 7.604-.288 2.968-4.12 5.217-6.44 6.518a53.263 53.263 0 0 1-13.307 4.93 131.892 131.892 0 0 1-29.893 3.453 129.403 129.403 0 0 1-22.523-1.757c-7.165-1.163-14.307-3.034-20.64-6.68-2.422-1.397-6.314-3.562-6.494-6.734-.18-3.178 3.478-5.75 5.72-7.388a52.743 52.743 0 0 1 13.241-6.44 88.558 88.558 0 0 1 14.596-3.55l.731-.636a4.274 4.274 0 0 0 1.308-3.202c-.048-1.99-.042-4.041.017-6.134a114.609 114.609 0 0 0-19.698 3.4 65.673 65.673 0 0 0-16.562 6.608c-6.417 3.778-12.467 9.69-12.689 17.624a16.893 16.893 0 0 0 1.26 6.668c2.002 5.007 6.314 9.186 10.649 12.167a65.503 65.503 0 0 0 16.562 7.963 113.208 113.208 0 0 0 34.522 5.48 104.377 104.377 0 0 0 31.35-4.34 17.415 17.415 0 0 1 20.43-12.827zM23.623 22.798a7.545 7.545 0 0 0 6.97-4.66 69.71 69.71 0 0 0 10.42 1.796 57.338 57.338 0 0 0 8.32.31 38.128 38.128 0 0 0 5.502-.549 10.177 10.177 0 0 0 18.328 0 38.13 38.13 0 0 0 5.503.55 57.338 57.338 0 0 0 8.32-.311 69.71 69.71 0 0 0 10.418-1.795 7.546 7.546 0 1 0 0-5.77 70.364 70.364 0 0 0-10.418-1.798 57.338 57.338 0 0 0-8.32-.31 40.834 40.834 0 0 0-5.5.552 10.177 10.177 0 0 0-18.333 0 40.84 40.84 0 0 0-5.5-.553 57.338 57.338 0 0 0-8.32.311 70.366 70.366 0 0 0-10.418 1.798 7.545 7.545 0 1 0-6.972 10.429z" fill="#d99102" opacity="1" data-original="#000000"></path><path d="M33.17 83.782a110.69 110.69 0 0 0 61.661 0L74.977 66.561a10.719 10.719 0 0 1-3.466-8.15 123.874 123.874 0 0 0-.492-13.774c-.396-4.491-.96-8.982-1.757-13.426a17.01 17.01 0 0 1-10.518 0c-.791 4.444-1.349 8.94-1.769 13.426a117.373 117.373 0 0 0-.503 13.72 10.843 10.843 0 0 1-3.466 8.222zM114.428 101.586a10.79 10.79 0 1 0 8.353 12.767 10.789 10.789 0 0 0-8.353-12.767zm2.669 7.982c-.324 1.54-2.573 2.38-5.026 1.87s-4.173-2.182-3.85-3.73c.318-1.546 2.567-2.38 5.02-1.87s4.18 2.183 3.856 3.73z" fill="#d99102" opacity="1" data-original="#000000"></path></g></svg></span>
+    <button class="rl-title-btn" id="rulesBtn" type="button">
+      Roulette
+    </button>
+
+  </div>
+<div class="rl-topbar-right">
+  <div class="rl-history-mask">
+    <div class="rl-history" id="rlHistory"></div>
+  </div>
+</div>
+</div>
+        <div class="rl-surface">
+<div class="rl-strip">
+  <div class="rl-strip-track" id="rlStripTrack"></div>
+  <div class="rl-strip-pointer" aria-hidden="true"></div>
+  <div class="rl-fade-left"></div>
+<div class="rl-fade-right"></div>
+</div>
+<div class="rl-board">
+  <div class="rl-board-grid">
+    <button class="rl-cell rl-zero" type="button" data-bet="0">0</button>
+    <button class="rl-cell rl-num" type="button" data-bet="3">3</button>
+    <button class="rl-cell rl-num" type="button" data-bet="6">6</button>
+    <button class="rl-cell rl-num" type="button" data-bet="9">9</button>
+    <button class="rl-cell rl-num" type="button" data-bet="12">12</button>
+    <button class="rl-cell rl-num" type="button" data-bet="15">15</button>
+    <button class="rl-cell rl-num" type="button" data-bet="18">18</button>
+    <button class="rl-cell rl-num" type="button" data-bet="21">21</button>
+    <button class="rl-cell rl-num" type="button" data-bet="24">24</button>
+    <button class="rl-cell rl-num" type="button" data-bet="27">27</button>
+    <button class="rl-cell rl-num" type="button" data-bet="30">30</button>
+    <button class="rl-cell rl-num" type="button" data-bet="33">33</button>
+    <button class="rl-cell rl-num" type="button" data-bet="36">36</button>
+
+    <button class="rl-cell rl-2to1" type="button" data-bet="2to1_top">2:1</button>
+    <button class="rl-cell rl-num" type="button" data-bet="2">2</button>
+    <button class="rl-cell rl-num" type="button" data-bet="5">5</button>
+    <button class="rl-cell rl-num" type="button" data-bet="8">8</button>
+    <button class="rl-cell rl-num" type="button" data-bet="11">11</button>
+    <button class="rl-cell rl-num" type="button" data-bet="14">14</button>
+    <button class="rl-cell rl-num" type="button" data-bet="17">17</button>
+    <button class="rl-cell rl-num" type="button" data-bet="20">20</button>
+    <button class="rl-cell rl-num" type="button" data-bet="23">23</button>
+    <button class="rl-cell rl-num" type="button" data-bet="26">26</button>
+    <button class="rl-cell rl-num" type="button" data-bet="29">29</button>
+    <button class="rl-cell rl-num" type="button" data-bet="32">32</button>
+    <button class="rl-cell rl-num" type="button" data-bet="35">35</button>
+
+    <button class="rl-cell rl-2to1" type="button" data-bet="2to1_mid">2:1</button>
+    <button class="rl-cell rl-num" type="button" data-bet="1">1</button>
+    <button class="rl-cell rl-num" type="button" data-bet="4">4</button>
+    <button class="rl-cell rl-num" type="button" data-bet="7">7</button>
+    <button class="rl-cell rl-num" type="button" data-bet="10">10</button>
+    <button class="rl-cell rl-num" type="button" data-bet="13">13</button>
+    <button class="rl-cell rl-num" type="button" data-bet="16">16</button>
+    <button class="rl-cell rl-num" type="button" data-bet="19">19</button>
+    <button class="rl-cell rl-num" type="button" data-bet="22">22</button>
+    <button class="rl-cell rl-num" type="button" data-bet="25">25</button>
+    <button class="rl-cell rl-num" type="button" data-bet="28">28</button>
+    <button class="rl-cell rl-num" type="button" data-bet="31">31</button>
+    <button class="rl-cell rl-num" type="button" data-bet="34">34</button>
+
+    <button class="rl-cell rl-2to1" type="button" data-bet="2to1_bot">2:1</button>
+    
+    <button class="rl-cell rl-wide rl-dozen" type="button" data-bet="1_12">1 to 12</button>
+    <button class="rl-cell rl-wide rl-dozen" type="button" data-bet="13_24">13 to 24</button>
+    <button class="rl-cell rl-wide rl-dozen" type="button" data-bet="25_36">25 to 36</button>
+    
+    <button class="rl-cell rl-out" type="button" data-bet="1_18">1 to 18</button>
+    <button class="rl-cell rl-out" type="button" data-bet="even">Even</button>
+    <button class="rl-cell rl-out rl-red" type="button" data-bet="red" aria-label="Red"></button>
+    <button class="rl-cell rl-out rl-black" type="button" data-bet="black" aria-label="Black"></button>
+    <button class="rl-cell rl-out" type="button" data-bet="odd">Odd</button>
+    <button class="rl-cell rl-out" type="button" data-bet="19_36">19 to 36</button>
+
+  </div>
+</div>
+<div class="rl-table-actions" aria-label="Table actions">
+  <button class="rl-table-btn rl-clear-btn" type="button" id="rlClearBtn">Clear</button>
+  <button class="rl-table-btn rl-undo-btn" type="button" id="rlUndoBtn">Undo</button>
+</div>
+      </div>
+  </main>
+<div class="roulette-controls">
+
+  <button class="spin-btn" type="button" aria-label="Spin the wheel">
+    Spin
+  </button>
+  <span id="total">Total Bet</span>
+<div class="rl-bet-panel" aria-label="Total bet panel">
+  <div class="rl-bet-display" aria-label="Total bet amount">
+    <span class="wallet-unit wallet-currency rl-wallet-unit" id="currency"></span>
+    <span class="rl-bet-value">0.00</span>
+  </div>
+  <div class="rl-bet-quick" aria-label="Quick bet actions">
+    <button class="rl-bet-qbtn" type="button" data-quick="half">1/2</button>
+    <button class="rl-bet-qbtn" type="button" data-quick="2x">2x</button>
+  </div>
+</div>
+  <div class="chip-selector" aria-label="Chip selector">
+    <button class="chip-nav" type="button" aria-label="Previous chips">
+      ‹
+    </button>
+
+       <div class="chip-window">
+      <div class="chip-track">
+        <button class="chip" type="button" aria-label="Bet 1" data-value="1">
+          <span class="bj-chip-label" style="color: #00000096;">1</span>
+          <img class="chip5" src="/assets/casino-chip.png" alt="Deck" draggable="false" style="width: 42px;">
+        </button>
+        <button class="chip" type="button" aria-label="Bet 5" data-value="5">
+          <span class="bj-chip-label" style="color: #00000096;">5</span>
+          <img class="chip10" src="/assets/casino-chip.png" alt="Deck" draggable="false" style="width: 42px;">
+        </button>
+        <button class="chip" type="button" aria-label="Bet 50" data-value="25">
+          <span class="bj-chip-label" style="color: #00000096;">25</span>
+          <img class="chip25" src="/assets/casino-chip.png" alt="Deck" draggable="false" style="width: 42px; ">
+        </button>
+        <button class="chip" type="button" aria-label="Bet 100" data-value="50">
+          <span class="bj-chip-label" style="color: #00000096;">50</span>
+          <img class="chip50" src="/assets/casino-chip.png" alt="Deck" draggable="false" style="width: 42px;">
+        </button>
+        <button class="chip" type="button" aria-label="Bet 250" data-value="100">
+          <span class="bj-chip-label" style="color: #00000096;">100</span>
+          <img class="chip100" src="/assets/casino-chip.png" alt="Deck" draggable="false" style="width: 42px;">
+        </button>
+        <button class="chip" type="button" aria-label="Bet 500" data-value="500">
+          <span class="bj-chip-label" style="color: #00000096;">500</span>
+          <img class="chip500" src="/assets/casino-chip.png" alt="Deck" draggable="false" style="width: 42px;">
+        </button>
+        <button class="chip" type="button" aria-label="Bet 1000" data-value="1000">
+          <span class="bj-chip-label" style="color: #00000096;">1K</span>
+          <img class="chip1000" src="/assets/casino-chip.png" alt="Deck" draggable="false" style="width: 42px;">
+        </button>
+<button class="chip" type="button" aria-label="Bet 5000" data-value="5000">
+  <span class="bj-chip-label" style="color:#00000096;">5K</span>
+  <img class="chip5000" src="/assets/casino-chip.png" alt="" draggable="false" style="width:42px;">
+</button>
+
+<button class="chip" type="button" aria-label="Bet 10000" data-value="10000">
+  <span class="bj-chip-label" style="color:#00000096;">10K</span>
+  <img class="chip10000" src="/assets/casino-chip.png" alt="" draggable="false" style="width:42px;">
+</button>
+<button class="chip" type="button" aria-label="Bet 5000" data-value="50000">
+  <span class="bj-chip-label" style="color:#00000096;">50K</span>
+  <img class="chip50000" src="/assets/casino-chip.png" alt="" draggable="false" style="width:42px;">
+</button>
+
+<button class="chip" type="button" aria-label="Bet 10000" data-value="100000">
+  <span class="bj-chip-label" style="color:#00000096;">100K</span>
+  <img class="chip100000" src="/assets/casino-chip.png" alt="" draggable="false" style="width:42px;">
+</button>
+<button class="chip" type="button" aria-label="Bet 5000" data-value="200000">
+  <span class="bj-chip-label" style="color:#00000096;">200K</span>
+  <img class="chip200000" src="/assets/casino-chip.png" alt="" draggable="false" style="width:42px;">
+</button>
+
+<button class="chip" type="button" aria-label="Bet 10000" data-value="500000">
+  <span class="bj-chip-label" style="color:#00000096;">500K</span>
+  <img class="chip500000" src="/assets/casino-chip.png" alt="" draggable="false" style="width:42px;">
+</button>
+
+<button class="chip" type="button" aria-label="Bet 1000000" data-value="1000000">
+  <span class="bj-chip-label" style="color:#00000096;">1M</span>
+  <img class="chip1000000" src="/assets/casino-chip.png" alt="" draggable="false" style="width:42px;">
+</button>
+
+<button class="chip" type="button" aria-label="Bet 5000000" data-value="5000000">
+  <span class="bj-chip-label" style="color:#00000096;">5M</span>
+  <img class="chip5000000" src="/assets/casino-chip.png" alt="" draggable="false" style="width:42px;">
+</button>
+      </div>
+    </div>
+
+    <button class="chip-nav" type="button" aria-label="Next chips">
+      ›
+    </button>
+  </div>
+</div>
+      </div>
+<div class="modal-backdrop" id="accountModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Account settings">
+    <div class="modal-head">
+      <div class="modal-title">Account Settings</div>
+      <button class="modal-x" id="accountModalClose" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-title">Account</div>
+
+        <div class="kv">
+          <div class="k">Username</div>
+          <div class="v" id="acctUsername">—</div>
+        </div>
+
+        <div class="kv">
+          <div class="k">Email</div>
+          <div class="v" id="acctEmail">—</div>
+        </div>
+
+        <div class="row-actions">
+          <button class="btn-lite" id="showEmail" type="button">Show Email</button>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Security</div>
+
+        <form id="changePasswordForm" class="form">
+          <label class="field">
+            <span>Current password</span>
+            <input id="pwCurrent" type="password" autocomplete="current-password" required />
+          </label>
+
+          <label class="field">
+            <span>New password</span>
+            <input id="pwNew" type="password" autocomplete="new-password" minlength="8" required />
+          </label>
+
+          <label class="field">
+            <span>Confirm new password</span>
+            <input id="pwConfirm" type="password" autocomplete="new-password" minlength="8" required />
+          </label>
+
+       <button class="btn-primary" id="pwSubmitBtn" type="submit">
+   <span id="pwBtnText">Change password</span>
+  <span class="btn-spinner" id="pwSpinner" aria-hidden="true"></span>
+</button>
+  <div id="pwMsg" class="pw-msg"></div>
+  </form>
+      </div>
+
+ <div class="modal-footer">
+  <button class="btn-primary" id="logoutBtnModal" type="button">Logout</button>
+</div>
+    </div>
+  </div>
+</div>
+ <div class="modal-backdrop" id="dailyRewardsModal" aria-hidden="true">
+  <div class="modal-card daily-modal-card" role="dialog" aria-modal="true" aria-label="Daily rewards">
+    <div class="modal-head daily-modal-head">
+      <div class="modal-title daily-title">Daily Rewards</div>
+      <button class="modal-x" id="dailyRewardsClose" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body daily-modal-body">
+      <div class="daily-subtext">
+        Claim every day to build your streak and unlock bigger rewards.
+      </div>
+
+   <div class="daily-streak" id="dailyStreak"></div>
+
+<div class="daily-today" id="dailyTodayText"></div>
+
+      <button class="btn-primary daily-claim-btn" id="dailyClaimBtn" type="button">
+        Claim Daily Reward
+      </button>
+
+      <div class="form-hint" id="dailyMsg"></div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop" id="balanceSettingsModal" aria-hidden="true">
+  <div class="modal-card daily-modal-card" role="dialog" aria-modal="true" aria-label="Balance settings">
+    <div class="modal-head daily-modal-head">
+      <div class="modal-title daily-title">Balance Settings</div>
+      <button class="modal-x" id="balanceSettingsClose" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body daily-modal-body">
+      <div class="daily-subtext" id="balanceTxt">
+        BALANCE
+      </div>
+
+    <div class="balance-settings-box">
+  <div class="balance-settings-amount">
+    <span id="balanceSettingsAmount">0</span>
+    <span id="balanceSettingsUnit" class="balance-settings-unit"></span>
+  </div>
+</div>
+<div class="balance-accounts">
+  <div class="balance-accounts-head">
+    <div class="balance-accounts-title">Accounts</div>
+  </div>
+  <div class="balance-accounts-list" id="savingsAccountsList">
+    <div class="balance-account-empty" id="savingsEmptyState">No accounts yet.</div>
+  </div>
+  <div class="savings-detail" id="savingsDetail" aria-hidden="true">
+    <div class="savings-detail-head">
+      <div class="savings-detail-name" id="savingsDetailName">Account</div>
+
+      <div class="savings-detail-balance">
+        <span id="savingsDetailAmount">$0</span>
+      </div>
+
+      <button class="modal-x savings-detail-x" id="savingsDetailClose" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="savings-detail-body">
+      <div class="savings-detail-row">
+        <input id="savingsDetailWithdrawInput" class="savings-detail-input" type="text" inputmode="decimal"
+          placeholder="0.00" autocomplete="off" />
+        <button class="btn-primary savings-detail-btn" id="savingsDetailWithdrawBtn" type="button">Withdraw</button>
+      </div>
+
+      <div class="savings-detail-row">
+        <input id="savingsDetailDepositInput" class="savings-detail-input" type="text" inputmode="decimal"
+          placeholder="0.00" autocomplete="off" />
+        <button class="btn-primary savings-detail-btn" id="savingsDetailDepositBtn" type="button">Deposit</button>
+      </div>
+
+      <div class="form-hint" id="savingsDetailMsg"></div>
+
+      <button class="btn-primary savings-detail-delete" id="savingsDetailDeleteBtn" type="button">
+        Delete account
+      </button>
+    </div>
+  </div>
+  <button class="balance-plus-btn btn-primary" id="createSavingsBtn" type="button" aria-label="Create account">
+    <span aria-hidden="true">+</span>
+  </button>
+</div>
+    
+
+      <div class="form-hint" id="balanceSettingsMsg"></div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop" id="createSavingsModal" aria-hidden="true">
+  <div class="modal-card daily-modal-card" id="createAccount" role="dialog" aria-modal="true" aria-label="Create savings account">
+    <div class="modal-head daily-modal-head">
+      <div class="modal-title daily-title">Create Account</div>
+      <button class="modal-x" id="createSavingsClose" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body daily-modal-body" >
+    
+
+      <form class="form" id="createSavingsForm" autocomplete="off">
+        <label class="field">
+          <span>Account name</span>
+          <input id="savingsNameInput" type="text" maxlength="30" placeholder="e.g. Savings" required />
+        </label>
+
+        <label class="field">
+          <span>Deposit amount</span>
+          <input id="savingsDepositInput" type="text"  placeholder="0" />
+        </label>
+   <div class="form-hint" id="createSavingsMsg"></div>
+        <div class="balance-popup-actions">
+          <button class="btn-primary" id="createSavingsCancel" type="button" style="width: 65px;">Cancel</button>
+          <button class="btn-primary" id="createSavingsSave" type="submit" style="width: 65px;">Save</button>
+        </div>
+
+     
+      </form>
+    </div>
+  </div>
+</div>
+  <script src="/js/api/client.js"></script>
+<script src="/js/api/authApi.js"></script>
+<script src="/js/api/walletApi.js"></script>
+<script src="/js/pages/topbar.js"></script>
+<script src="/js/boot.js"></script>
+<script src="/js/pages/roulette.js"></script>
+</body>
+</html>

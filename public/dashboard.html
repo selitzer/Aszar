@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aszar • Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+  </head>
+
+  <body>
+      <div id="appLoader">
+          <img class="logoLoader" src="/assets/logo.png" alt="Rollix" />
+      </div>
+
+  <div id="appRoot">
+ <header class="topbar">
+      <div class="topbar-left">
+        <a class="brand" href="/dashboard" aria-label="Rollix Dashboard">
+          <img class="brand-logo" src="/assets/logo.png" alt="Rollix" />
+        </a>
+      </div>
+
+<div class="topbar-right">
+<div class="profile-menu-wrap wallet-menu-wrap" id="walletMenuWrap">
+  <div class="wallet-group">
+    <button class="wallet-balance" id="walletToggleBtn" type="button">
+      <span class="wallet-amount" id="balance">0</span>
+      <span class="wallet-unit" id="balanceUnit"></span>
+    </button>
+
+    <button class="wallet-action" id="depositBtn" type="button"
+      aria-haspopup="menu" aria-expanded="false">
+      Wallet
+    </button>
+  </div>
+
+  <div class="profile-menu" id="walletMenu" role="menu" aria-label="Wallet menu">
+    <button class="profile-menu-item" role="menuitem" type="button" data-action="daily">
+      Daily rewards
+    </button>
+
+    <div class="profile-menu-sep" role="separator" aria-hidden="true"></div>
+
+  <button class="profile-menu-item" id="balanceMenu" role="menuitem" type="button" data-action="balanceSettings">
+  Balance settings
+</button>
+  </div>
+</div>
+
+<div class="profile-menu-wrap" id="profileMenuWrap">
+  <button class="profile-btn" id="profileBtn" type="button" aria-label="Profile" aria-haspopup="menu" aria-expanded="false">
+    <svg class="profile-icon" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M4 20c0-4.2 3.6-7 8-7s8 2.8 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="profile-menu" id="profileMenu" role="menu" aria-label="Profile menu">
+    <button class="profile-menu-item" role="menuitem" type="button" data-action="account">
+      Account settings
+    </button>
+
+    <div class="profile-menu-sep" role="separator" aria-hidden="true"></div>
+
+    <button class="profile-menu-item danger" role="menuitem" type="button" data-action="logout">
+      Logout
+    </button>
+  </div>
+</div>
+</div>
+    </header>
+    <main class="page">
+      <section class="section">
+        <div class="section-header">
+          <h2>Account Overview</h2>
+          <p class="subtext">Stats and recent activity.</p>
+        </div>
+
+        <div class="grid stats-grid">
+          <div class="card">
+            <div class="card-title">P/L</div>
+            <div class="card-value neutral pl-value" id="plValue">
+  <span class="pl-number" id="plNumber">0</span>
+  <span class="pl-unit wallet-unit cash" id="plUnit"></span>
+</div>
+            <div class="card-footnote">All time</div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Total Wagered</div>
+            <div class="card-value" id="wageredValue">$0.00</div>
+            <div class="card-footnote">All time</div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Average Bet</div>
+            <div class="card-value" id="winRateValue">0</div>
+            <div class="card-footnote">All time</div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Bets</div>
+            <div class="card-value" id="betsCountValue">0</div>
+            <div class="card-footnote">All time</div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-header">
+          <h2>Games</h2>
+
+        </div>
+
+        <div class="grid games-grid">
+<a class="game-card game-card--blackjack" href="/blackjack">
+  
+  <div class="game-media">
+    <div class="game-art">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"  x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path fill="#0ed290" d="M189.676 481.288c-9.176 0-16.641-7.465-16.641-16.641V130.641c0-9.176 7.465-16.641 16.641-16.641H422.23c9.176 0 16.641 7.465 16.641 16.641v299.382C477.506 386.714 501 329.605 501 267c0-135.31-109.69-245-245-245S11 131.69 11 267s109.69 245 245 245c43.12 0 83.628-11.154 118.824-30.712z" opacity="0" data-original="#0ed290" class=""></path><path fill="#00c285" d="M471 160.353c0-9.743-7.898-17.641-17.641-17.641H438.87v287.312A245.753 245.753 0 0 0 471 384.522zM203.165 481.288v13.071c0 5.222 2.282 9.899 5.887 13.129A246.24 246.24 0 0 0 256 512c43.12 0 83.628-11.154 118.824-30.712z" opacity="0" data-original="#00c285" class=""></path><g fill="#00c285"><path d="M105.421 368.288v16.65c0 9.743 7.898 17.641 17.641 17.641h49.973v-34.291zM338.965 36.431V114h34.291V51.835a243.638 243.638 0 0 0-34.291-15.404z" fill="#00c285" opacity="0" data-original="#00c285" class=""></path></g><path fill="#efedef" d="M173.035 130.641c0-9.176 7.465-16.641 16.641-16.641h150.289V17.641C339.965 7.898 332.067 0 322.324 0H89.771C80.028 0 72.13 7.898 72.13 17.641v334.006c0 9.743 7.898 17.641 17.641 17.641h83.264z" opacity="1" data-original="#efedef" class=""></path><path fill="#e5e1e5" d="M298 17.641V114h41.965V17.641C339.965 7.898 332.067 0 322.324 0h-41.965C290.102 0 298 7.898 298 17.641z" opacity="1" data-original="#e5e1e5"></path><path fill="#554e56" d="M127.653 106.372 110.7 88.759l-16.953 17.613c-5.314 5.521-3.371 14.899 3.658 17.66 3.656 1.436 7.448.58 10.163-1.694l-5.078 8.795h16.418l-5.078-8.795c2.716 2.274 6.508 3.13 10.163 1.694 7.031-2.761 8.974-12.14 3.66-17.66zM110.7 82.033c-11.077 0-20.089-9.012-20.089-20.089V52.83h10v9.114c0 5.563 4.525 10.089 10.089 10.089s10.089-4.526 10.089-10.089v-41.92h10v41.92c0 11.077-9.012 20.089-20.089 20.089z" opacity="1" data-original="#554e56"></path><path fill="#fe646f" d="M173.035 130.641c0-9.176 7.465-16.641 16.641-16.641h90.95l4.506-13.483c1.082-3.238-1.328-6.585-4.742-6.585H137.71c-3.417 0-5.827 3.351-4.741 6.59l12.972 38.681 5.469 1h21.625zM173.035 256.523l-1.583 1.136a28.668 28.668 0 0 1-16.812 5.406 28.724 28.724 0 0 1-17.494-5.923l11.033 32.898a15 15 0 0 0 14.222 10.23h10.635v-43.747z" opacity="1" data-original="#fe646f"></path><path fill="#fee97d" d="M173.035 165.447h-27.094v40.154c-12.257 3.725-21.179 15.113-21.179 28.587 0 16.501 13.377 29.877 29.877 29.877a29.733 29.733 0 0 0 18.395-6.344v-92.274z" opacity="1" data-original="#fee97d"></path><path fill="#fd4755" d="M189.676 114h45.305l2.43-20.068h-56.729l2.594 21.352a16.535 16.535 0 0 1 6.4-1.284z" opacity="1" data-original="#fd4755"></path><path fill="#fb2b3a" d="M145.941 139.202h27.094v27.245h-27.094z" opacity="1" data-original="#fb2b3a" class=""></path><circle cx="154.64" cy="234.188" r="16.262" fill="#fedf30" opacity="1" data-original="#fedf30" class=""></circle><path fill="#f9f7f8" d="M439.87 428.896V130.641c0-9.743-7.898-17.641-17.641-17.641H189.676c-9.743 0-17.641 7.898-17.641 17.641v334.006c0 9.743 7.898 17.641 17.641 17.641h183.359c25.316-13.792 47.921-31.927 66.835-53.392z" opacity="1" data-original="#f9f7f8" class=""></path><path fill="#f9f7f8" d="M439.87 428.896V130.641c0-9.743-7.898-17.641-17.641-17.641H189.676c-9.743 0-17.641 7.898-17.641 17.641v334.006c0 9.743 7.898 17.641 17.641 17.641h183.359c25.316-13.792 47.921-31.927 66.835-53.392z" opacity="1" data-original="#f9f7f8" class=""></path><path fill="#efedef" d="M397.714 466.877a246.364 246.364 0 0 0 42.156-37.981V130.641c0-9.743-7.898-17.641-17.641-17.641h-42c9.743 0 17.641 7.898 17.641 17.641v334.006c0 .757-.063 1.498-.156 2.23z" opacity="1" data-original="#efedef" class=""></path><path fill="#554e56" d="m376.554 276.497-68.44-71.104a3 3 0 0 0-4.323 0l-68.44 71.104c-22.13 22.991-14.039 62.049 15.235 73.547 15.225 5.98 31.017 2.417 42.325-7.055l-18.548 32.126c-1.155 2 .289 4.5 2.598 4.5h57.981c2.309 0 3.753-2.5 2.598-4.5l-18.548-32.126c11.309 9.472 27.101 13.035 42.325 7.055 29.275-11.498 37.366-50.556 15.237-73.547z" opacity="1" data-original="#554e56"></path><g fill="#433f43"><path d="m376.554 276.497-68.44-71.104a3 3 0 0 0-4.323 0l-8.935 9.282 59.505 61.822c22.129 22.991 14.039 62.049-15.235 73.547-1.392.547-2.79.987-4.188 1.377 8.309 2.334 17.439 2.134 26.38-1.377 29.275-11.498 37.365-50.556 15.236-73.547zM337.541 375.114l-18.548-32.126h-9.287c-3.849 0-6.255 4.167-4.33 7.5l14.218 24.626c1.155 2-.289 4.5-2.598 4.5h17.947c2.309 0 3.753-2.5 2.598-4.5z" fill="#433f43" opacity="1" data-original="#433f43"></path></g><path fill="#554e56" d="m227.559 219.372-16.953-17.613-16.953 17.613c-5.314 5.521-3.371 14.899 3.658 17.66 3.656 1.436 7.448.58 10.163-1.694l-5.078 8.795h16.418l-5.078-8.795c2.716 2.274 6.508 3.13 10.163 1.694 7.031-2.761 8.973-12.14 3.66-17.66zM221.477 193.442h10.413l-16.482-56.811a5 5 0 0 0-9.604 0l-16.482 56.811h10.413l2.268-7.817h17.207zm-16.574-17.817 5.702-19.655 5.702 19.655zM384.347 369.653l16.953 17.613 16.953-17.613c5.314-5.521 3.371-14.899-3.658-17.66-3.656-1.436-7.448-.58-10.163 1.694l5.078-8.795h-16.418l5.078 8.795c-2.716-2.274-6.508-3.13-10.163-1.694-7.031 2.761-8.974 12.139-3.66 17.66zM412.171 395.583l-2.491 8.587h-16.76l-2.491-8.587h-10.413l16.482 56.81a5 5 0 0 0 9.604 0l16.482-56.81zM401.3 433.055l-5.479-18.885h10.958z" opacity="1" data-original="#554e56"></path></g></svg>
+    </div>
+  </div>
+
+  <div class="game-footer">
+    <div class="game-name">BLACKJACK</div>
+  </div>
+
+</a>
+
+<a class="game-card game-card--roulette" href="/roulette">
+  
+  <div class="game-media">
+    <div class="game-art">
+      <svg  enable-background="new 0 0 3000 3000"  viewBox="0 0 3000 3000"  xmlns="http://www.w3.org/2000/svg"><path d="m8947 1403c-1.1 1.7-2.1.9-3-2.1 2.7.3 3.7 1 3 2.1z"/><g><path d="m2721.7 2434.6-88.1 127.3c-125.1 180.8-372.1 246.6-609.9 162-86.5-30.8-183.4-68.4-287.6-114-451.5-197.8-1040.1-545.4-1512-1131.5-148.2-184.1-174.7-420.4-66.7-596.3l31.9-51.9 63.2-102.9z" fill="#f88610"/><path d="m252.4 727.3 2469.3 1707.3-88.1 127.3c-125.1 180.8-372.1 246.6-609.9 162-86.5-30.8-183.4-68.4-287.6-114 1.1-.9 2.3-1.8 3.4-2.8 86.3-71.5 67.2-208.9-35.4-254.1-1164.4-513-1454.9-1302.5-1515-1522.9z" opacity=".11"/><ellipse cx="1546.5" cy="1495.5" fill="#ffad3c" rx="591.5" ry="1524.5" transform="matrix(.569 -.822 .822 .569 -563.184 1916.709)"/><ellipse cx="1609.5" cy="1377.5" fill="#ffce85" rx="591.5" ry="1524.5" transform="matrix(.569 -.822 .822 .569 -438.972 1917.646)"/><path d="m2662.7 2105-.2.2c-66.3 95.9-230.3 111.7-445.6 60.1-244.3-58.6-554.7-203.9-863.8-417.6-308.6-213.4-554-452.1-695.1-659.7-124.8-183.6-168.2-343-101.7-439l.2-.2c141.8-204.3 727.8-44.2 1309.2 357.8s938.1 893.6 797 1098.4z" fill="#ffad3c"/><path d="m2662.7 2105c-5.8-138.3-173.1-419-819.2-956.2s-1287-500.1-1287-500.1c141.8-204.3 727.8-44.2 1309.2 357.8s938.1 893.7 797 1098.5z" fill="#f88610"/><path d="m2356 2088.9c-28.5 41.2-76.4 66.3-139.1 76.4-14.3-3.4-28.8-7.1-43.5-11.2-64-17.4-132-40.4-202.9-68.6-69-27.5-140.8-59.9-214.4-97-44.2-22.3-89-46.3-134.3-71.9-64.5-36.5-129.8-76.4-195.3-119.4-24.5-16.1-49-32.6-73.4-49.5-7.3-5.1-14.7-10.2-21.9-15.3-46.6-32.7-91.6-65.9-135-99.5-38.3-29.6-75.3-59.5-110.9-89.5-73.6-62-141.3-124.6-202.3-186.6-49.9-50.7-95.3-101-135.7-150.2-33.2-40.4-63-80-89.2-118.6-6.2-30-7.9-58-4.8-83.6 3.3-27.7 12.2-52.6 27.1-74.1 7.3-10.6 15.9-20.1 25.7-28.5 56.7-49.1 153.8-63.2 275.7-46 56 7.9 117.3 22.4 182.4 43.1 79.1 25.2 163.7 59.6 251.1 102.5 44.1 21.7 88.9 45.5 134.2 71.4 55.1 31.6 110.7 66.2 166.3 103.9 7.4 5 14.9 10.1 22.3 15.3 24.5 16.9 48.4 34 71.8 51.4 35.2 26.1 69.1 52.5 101.7 79.2 36.7 30.1 71.7 60.6 104.8 91.1 43.3 39.9 83.4 80.1 119.9 119.9 45.6 49.6 85.6 98.7 119.5 146.4 59.8 84.1 100.5 163.7 118.5 233.5 13.1 51.1 14.1 96.9 1.5 135.6-4.8 14.2-11.3 27.6-19.8 39.8z" fill="#534741"/><g fill="#ac1736"><path d="m1809.7 1243.2-383.1 554c-24.5-16.1-49-32.6-73.4-49.5-7.3-5.1-14.7-10.2-21.9-15.3l384.3-555.9c7.4 5 14.9 10.1 22.3 15.3 24.4 16.9 48.4 34.1 71.8 51.4z"/><path d="m2016.2 1413.6-182.2 48.7-141.3 37.8-37.1 9.9-7 1.9-30.2 8.1-19.5 5.2-60.1 16.1-1.4.4-3.3.9-87.6 23.4-250.1 66.9c-38.3-29.6-75.3-59.5-110.9-89.5l276.4-73.9 40.5-10.8 52.9-14.1 56.7-15.2 35.6-9.5 8.9-2.4 20.4-5.4 20.3-5.4 26.2-7 96.2-25.7 192-51.4c36.5 30 71.5 60.4 104.6 91z"/><path d="m883 1356.8 478.7 112.6 95.4 22.5 34.7 8.2 9.8 2.3 28.2 6.6 68.9 16.2 13.7 3.2 42.1 9.9 29.4 6.9 136.1 32 435.7 102.5c-33.9-47.7-74-96.8-119.5-146.4l-302.2-71.1-151.2-35.6-56.5-13.3-29.3-6.9-30.4-7.1-4.3-1-60.6-14.3-.4-.1-116.9-27.5-245.9-57.9-391.1-92z"/><path d="m1756.2 1988.5c-44.2-22.3-89-46.3-134.3-71.9l-68.4-302.9-14.7-65.2-1.5-6.9-.3-1.4-7.1-31.3-10.9-48.1-7.1-31.6-10.2-45v-.2l-20.6-91.1-65.9-291.7c44.1 21.7 88.9 45.5 134.2 71.4l58.6 259.6 15.2 67.3 3.1 13.9 12.1 53.8 4 17.8 2.7 12.1 3.3 14.7 6 26.4 19.2 84.9 29.2 129.5z"/><path d="m2375.7 2049-559.8-339.5-142.2-86.3-89.3-54.2-45.8-27.7-1.7-1-9.3-5.7-42-25.4-28.5-17.3-54.9-33.3-263.8-160-485.2-294.2c3.3-27.7 12.2-52.6 27.1-74.1 7.3-10.6 15.9-20.1 25.7-28.5l610.3 370.1 185 112.2.4.2 49.6 30.1 5.1 3.1 48.3 29.3 33.8 20.5 11.5 7 42.7 25.9 127.3 77.2 554.2 336.1c13.1 51 14.1 96.8 1.5 135.5z"/><path d="m2173.4 2154.2c-64-17.4-132-40.4-202.9-68.6l-267.6-332.9-132-164.2-32.1-40-4.8-6-6.4-7.9-25.9-32.2-6.1-7.6-40.5-50.3-70.7-88-68.1-84.7-334.6-416.1c56 7.9 117.3 22.4 182.4 43.1l317 394.2 82.8 103 2.7 3.4 10.1 12.6 27.9 34.7 34.6 43.1 6 7.4 10.3 12.9 28.3 35.2 132 164.2z"/></g><path d="m2011.9 1767.8c-16.4 23.7-57.8 27.7-115.1 15.1-13.9-3-28.7-7.1-44.3-12-79.6-25.2-180.3-74.5-285.4-142.2-11-7.1-22-14.3-33.1-21.8-5.9-3.9-11.7-8-17.6-12-115.3-79.7-210.7-164.8-271.6-237.8-11.2-13.4-21.2-26.4-30-38.9-38.6-55-52.9-100-35.1-125.8 38.3-55.4 212.5-3.3 409.2 116.7 19.8 12.1 39.7 24.8 59.8 38.2 8.8 5.9 17.6 11.9 26.5 18 5.9 4.1 11.7 8.1 17.5 12.2 10.9 7.7 21.6 15.5 32.1 23.3 12.1 9 23.9 18 35.4 27 18.3 14.3 35.8 28.6 52.6 42.8 148.6 126.5 233.4 247.6 199.1 297.2z" fill="#ffad3c"/><g fill="#f78511"><path d="m1648.8 1347.3-403.9 9.8c-11.2-13.4-21.2-26.4-30-38.9l374-9.1c19.8 12.1 39.8 24.8 59.9 38.2z"/><path d="m1896.8 1782.9c-13.9-3-28.7-7.1-44.3-12l-92.3-343.2c18.3 14.3 35.8 28.6 52.6 42.8z"/></g><g><path d="m1692.7 1377.5c10.9 7.7 21.6 15.5 32.1 23.3l-157.6 228c-11-7.1-22-14.3-33.1-21.8z" fill="#f78511"/></g><g><path d="m1975.9 1450.5s-297.7 7.9-492.4-340.5l116.8-43 1.4-.5c110.6-40.8 209.3-108.6 286.9-197.4l12.7-8.4 62.1-41.3 28.2-18.7 80.8 55.9-5 22.7-19.4 88.1c-53.9 105.7-80.2 223.2-76.5 341.8z" fill="#ffcf13"/><path d="m1791.8 1563.2c-20.4-9.3-43.1-20.2-67.2-32.9-86.1-45.2-191.1-112.4-278.5-204.3-37.7-39.6-42.5-100.3-11.4-145.3l48.9-70.7s198.5 302.3 492.4 340.5l-35.2 63.6c-29.3 52.8-94.2 74.1-149 49.1z" fill="#ffcf13"/><path d="m1791.8 1563.2c-20.4-9.3-43.1-20.2-67.2-32.9.7-.2 1.5-.4 2.2-.7 62.4-19.5 70-104.9 12.2-135.5-190.4-100.7-258.1-189.9-281.5-246.5l26-37.6s198.5 302.3 492.4 340.5l-35.2 63.6c-29.2 52.8-94.1 74.1-148.9 49.1z" fill="#f7850e" opacity=".33"/><path d="m1975.9 1450.5s-297.7 7.9-492.4-340.5l116.8-43c17.4 24.9 163.5 223.4 309.6 81 121.9-118.9 29.2-220.7-8.5-287.4l62.1-41.3c32.6 15.2 70.7 38.2 104 59.8l-19.4 88.1c-53.9 105.7-80.2 223.2-76.5 341.8z" fill="#f7850e" opacity=".22"/><path d="m1889.4 657.9 340.9 235.7c-.1 0-315.4 134.9-340.9-235.7z" fill="#ffcf13"/><path d="m2230.2 893.6c-8.1 11.8-58.8-8.4-123.7-47.1-20.9-12.4-43.3-26.8-66.2-42.6-22.4-15.5-43.3-31-61.9-45.8-59.9-47.6-97.2-88.3-89.1-100.2 7.3-10.5 48.4 4.4 103.3 35.2 26.4 14.8 56 33.3 86.6 54.5 31.1 21.5 59.3 43.1 82.8 62.8 47.5 40.1 75.4 72.8 68.2 83.2z" fill="#f7850e"/><path d="m2165.9 805.2c-1.2 1.8-2.5 3.5-3.9 5.2-14.5 18.4-34.2 30.6-55.5 36.1-20.9-12.4-43.3-26.8-66.2-42.6-19.2-13.3-37.3-26.6-53.9-39.5-2.7-2.1-5.4-4.2-8-6.3-2.5-22 2-44.8 14.2-64.9 1.1-1.8 2.2-3.6 3.4-5.3 32.4-46.9 96.7-58.6 143.6-26.2 9.1 6.3 16.9 13.8 23.3 22.1 26.6 34.6 29.1 83.6 3 121.4z" fill="#ffd74a"/><path d="m2165.9 805.2c-1.2 1.8-2.5 3.5-3.9 5.2-14.5 18.4-34.2 30.6-55.5 36.1-20.9-12.4-43.3-26.8-66.2-42.6-19.2-13.3-37.3-26.6-53.9-39.5 30.9 12.7 129.1 41.6 176.5-80.6 26.6 34.6 29.1 83.6 3 121.4z" fill="#f7850e" opacity=".22"/><ellipse cx="2058" cy="670.5" fill="#fffaee" rx="24.3" ry="12.2" transform="matrix(.927 -.374 .374 .927 -101.352 819.271)"/></g><path d="m1668.6 1114.1c-12.9-32.8 68.4-116.5 119.3-99.1 14.2 4.8 26.5 17.7 29.6 32.1 7.4 34.6-38.1 79-85.9 84.8-19.3 2.5-55.8.6-63-17.8z" fill="#fffaee" opacity=".55"/></g></svg>
+  </div>
+</div>
+
+  <div class="game-footer">
+    <div class="game-name">ROULETTE</div>
+  </div>
+
+</a>
+<a class="game-card game-card--baccarat" href="/baccarat">
+  
+  <div class="game-media">
+    <div class="game-art">
+ <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"  x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path fill="#01d0fb" d="M189.676 481.288c-9.176 0-16.641-7.465-16.641-16.641V130.641c0-9.176 7.465-16.641 16.641-16.641h232.553c9.176 0 16.641 7.465 16.641 16.641v299.382C477.506 386.714 501 329.605 501 267c0-135.31-109.69-245-245-245S11 131.69 11 267s109.69 245 245 245c43.12 0 83.628-11.154 118.824-30.712z" opacity="0" data-original="#01d0fb" class=""></path><g fill="#01c0fa"><path d="M202.738 481.288v14.062c0 4.544 1.733 8.673 4.554 11.8A246.103 246.103 0 0 0 256 512c43.125 0 83.643-11.147 118.839-30.712zM452.933 143.703H438.87v286.314a245.767 245.767 0 0 0 31.704-44.704V161.344c0-9.742-7.899-17.641-17.641-17.641z" fill="#01d0fb" opacity="0" data-original="#01c0fa" class=""></path></g><g fill="#01c0fa"><path d="M338.965 114h34.291V51.835a243.638 243.638 0 0 0-34.291-15.404zM173.035 368.288H105.42v16.65c0 9.743 7.898 17.641 17.641 17.641h49.973v-34.291z" fill="#01d0fb" opacity="0" data-original="#01c0fa" class=""></path></g><path fill="#f9f7f8" d="M173.035 130.641c0-9.176 7.465-16.641 16.641-16.641h150.289V17.641C339.965 7.898 332.067 0 322.324 0H89.771C80.028 0 72.13 7.898 72.13 17.641v334.006c0 9.743 7.898 17.641 17.641 17.641h83.264z" opacity="1" data-original="#f9f7f8" class=""></path><path fill="#efedef" d="M298 17.641V114h41.965V17.641C339.965 7.898 332.067 0 322.324 0h-41.965C290.102 0 298 7.898 298 17.641z" opacity="1" data-original="#efedef"></path><path fill="#fe646f" d="m167.072 114.971-27.541-31.714a3 3 0 0 1 0-3.934l27.541-31.714a3 3 0 0 1 4.53 0l27.541 31.714a3 3 0 0 1 0 3.934l-27.541 31.714a3 3 0 0 1-4.53 0z" opacity="1" data-original="#fe646f" class=""></path><path fill="#fd4755" d="m199.144 79.323-27.541-31.714a3 3 0 0 0-4.53 0l-8.174 9.413 19.367 22.301a3 3 0 0 1 0 3.934l-19.367 22.301 8.174 9.413a3 3 0 0 0 4.53 0l27.541-31.714a3 3 0 0 0 0-3.934z" opacity="1" data-original="#fd4755"></path><g fill="#fe646f"><path d="m173.035 158.104-1.432-1.65a3 3 0 0 0-4.53 0l-27.541 31.714a3 3 0 0 0 0 3.934l27.541 31.714a3 3 0 0 0 4.53 0l1.432-1.65zM173.035 266.951l-1.432-1.65a3 3 0 0 0-4.53 0l-27.541 31.714a3 3 0 0 0 0 3.934l27.541 31.714a3 3 0 0 0 4.53 0l1.432-1.65zM258.406 114h6.216l26.698-30.743a3 3 0 0 0 0-3.934l-27.54-31.715a3 3 0 0 0-4.53 0l-27.541 31.714a3 3 0 0 0 0 3.934z" fill="#fe646f" opacity="1" data-original="#fe646f" class=""></path></g><path fill="#fd4755" d="M291.321 79.323 263.78 47.608a3 3 0 0 0-4.53 0l-8.222 9.467 19.32 22.247a3 3 0 0 1 0 3.934l-19.32 22.247 7.378 8.496h6.216l26.698-30.743a2.997 2.997 0 0 0 .001-3.933z" opacity="1" data-original="#fd4755"></path><path fill="#ffffff" d="M439.87 428.896V130.641c0-9.743-7.898-17.641-17.641-17.641H189.676c-9.743 0-17.641 7.898-17.641 17.641v334.006c0 9.743 7.898 17.641 17.641 17.641h183.359c25.316-13.792 47.921-31.927 66.835-53.392z" opacity="1" data-original="#ffffff" class=""></path><path fill="#f9f7f8" d="M397.714 466.877a246.364 246.364 0 0 0 42.156-37.981V130.641c0-9.743-7.898-17.641-17.641-17.641h-42c9.743 0 17.641 7.898 17.641 17.641v334.006c0 .757-.063 1.498-.156 2.23z" opacity="1" data-original="#f9f7f8" class=""></path><path fill="#554e56" d="M221.477 193.442h10.413l-16.482-56.811a5 5 0 0 0-9.604 0l-16.482 56.811h10.413l2.268-7.817h17.207zm-16.574-17.817 5.702-19.655 5.702 19.655zM412.171 395.583l-2.491 8.587h-16.76l-2.491-8.587h-10.413l16.482 56.81a5 5 0 0 0 9.604 0l16.482-56.81zM401.3 433.055l-5.479-18.885h10.958zM346.941 262.533c-.804 0-1.6.031-2.392.075 2.856-6.395 4.172-13.628 3.468-21.231-1.884-20.359-18.478-36.613-38.869-38.112-24.778-1.821-45.446 17.742-45.446 42.133a42.095 42.095 0 0 0 3.655 17.21 43.11 43.11 0 0 0-2.392-.075c-23.88 0-43.133 19.811-42.22 43.895.823 21.699 18.358 39.465 40.045 40.552 12.553.629 23.979-4.226 32.1-12.377l-17.348 30.047c-1.924 3.333.481 7.5 4.33 7.5h48.16c3.849 0 6.255-4.167 4.33-7.5l-17.348-30.047c8.121 8.151 19.547 13.006 32.1 12.377 21.687-1.087 39.222-18.853 40.045-40.552.915-24.084-18.338-43.895-42.218-43.895z" opacity="1" data-original="#554e56" class=""></path><path fill="#433f43" d="m334.363 364.65-17.348-30.047h-10.053c-3.849 0-6.255 4.167-4.33 7.5l13.018 22.547c1.924 3.333-.481 7.5-4.33 7.5h18.713c3.849 0 6.254-4.167 4.33-7.5zM346.941 262.533c-.804 0-1.6.031-2.392.075 2.856-6.395 4.172-13.628 3.468-21.231-1.902-20.557-18.793-36.884-39.4-38.148-12.366-.759-23.668 3.812-31.844 11.626a42.725 42.725 0 0 1 12.68-.653c20.062 1.949 36.128 18.191 37.873 38.271.579 6.665-.393 13.041-2.592 18.812-.391 1.025.373 2.099 1.47 2.098h.024c23.88 0 43.133 19.811 42.219 43.895-.429 11.314-5.408 21.552-13.143 28.921 18.746-3.798 33.114-20.179 33.857-39.771.913-24.084-18.34-43.895-42.22-43.895z" opacity="1" data-original="#433f43" class=""></path><path fill="#554e56" d="M220.448 217.811c-.193 0-.384.007-.574.018a10.152 10.152 0 0 0 .833-5.098c-.452-4.889-4.437-8.792-9.333-9.152-5.95-.437-10.913 4.26-10.913 10.117 0 1.472.314 2.87.878 4.133a9.944 9.944 0 0 0-.574-.018c-5.734 0-10.357 4.757-10.138 10.54.198 5.21 4.408 9.476 9.616 9.738a10.118 10.118 0 0 0 7.708-2.972l-5.205 9.016h15.724l-5.205-9.016a10.118 10.118 0 0 0 7.708 2.972c5.208-.261 9.418-4.527 9.616-9.738.216-5.783-4.407-10.54-10.141-10.54zM391.457 371.214c.193 0 .384-.007.574-.018a10.152 10.152 0 0 0-.833 5.098c.452 4.889 4.437 8.792 9.333 9.152 5.95.437 10.913-4.26 10.913-10.117 0-1.472-.314-2.87-.878-4.133.19.011.382.018.574.018 5.734 0 10.357-4.757 10.138-10.54-.198-5.21-4.408-9.476-9.616-9.738a10.118 10.118 0 0 0-7.708 2.972l5.205-9.016h-15.724l5.205 9.016a10.118 10.118 0 0 0-7.708-2.972c-5.208.261-9.418 4.527-9.616 9.738-.216 5.783 4.407 10.54 10.141 10.54z" opacity="1" data-original="#554e56" class=""></path><path fill="#fe646f" d="m112.156 131-19.988-23.016 19.988-23.016 19.988 23.016zM126.193 42.965c2.961-2.997 4.777-6.932 4.777-11.251 0-9.35-8.44-16.957-18.814-16.957s-18.814 7.606-18.814 16.957c0 4.319 1.816 8.254 4.777 11.251-5.446 3.767-8.963 9.664-8.963 16.286 0 11.348 10.318 20.58 23 20.58s23-9.232 23-20.58c0-6.622-3.517-12.519-8.963-16.286zm-22.851-11.251c0-3.836 3.954-6.957 8.814-6.957s8.814 3.121 8.814 6.957-3.954 6.957-8.814 6.957-8.814-3.121-8.814-6.957zm8.814 38.117c-7.168 0-13-4.746-13-10.58 0-5.833 5.832-10.58 13-10.58s13 4.746 13 10.58-5.832 10.58-13 10.58z" opacity="1" data-original="#fe646f" class=""></path></g></svg>
+    </div>
+</div>
+
+  <div class="game-footer">
+    <div class="game-name">BACCARAT</div>
+  </div>
+
+</a>
+
+
+        </div>
+      </section>
+      <section class="section" id="betHistory">
+        <div class="section-header row">
+          <div>
+            <h2>Bet History</h2>
+    
+          </div>
+
+      <div class="actions">
+  <div class="profile-menu-wrap filter-menu-wrap" id="filterMenuWrap">
+    <button
+      class="btn btn-ghost"
+      id="filter"
+      type="button"
+      aria-haspopup="menu"
+      aria-expanded="false"
+    >
+      Filter
+    </button>
+
+    <div class="profile-menu" id="filterMenu" role="menu" aria-label="Filter menu">
+      <button class="profile-menu-item" type="button" data-filter="game:all">
+        All games
+      </button>
+
+      <div class="profile-menu-sep" role="separator" aria-hidden="true"></div>
+      <div id="filterGameItems"></div>
+
+      <div class="profile-menu-sep" role="separator" aria-hidden="true"></div>
+
+      <button class="profile-menu-item" type="button" data-filter="payout:asc">
+        Payout: Low → High
+      </button>
+      <button class="profile-menu-item" type="button" data-filter="payout:desc">
+        Payout: High → Low
+      </button>
+    </div>
+  </div>
+</div>
+        </div>
+
+
+<div class="table-card">
+  <div class="table-scroll">
+ <div class="table-head">
+      <div>Date</div>
+      <div>Game</div>
+      <div>Bet</div>
+      <div>Result</div>
+      <div>Payout</div>
+    </div>
+    <div class="table-body">
+    </div>
+  </div>
+</div>
+<div class="table-pagination">
+  <button id="historyPrev" class="page-btn">&lt;</button>
+  <button id="historyNext" class="page-btn">&gt;</button>
+</div>
+      </section>
+    </main>
+  </div>
+<div class="modal-backdrop" id="accountModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Account settings">
+    <div class="modal-head">
+      <div class="modal-title">Account Settings</div>
+      <button class="modal-x" id="accountModalClose" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-title">Account</div>
+
+        <div class="kv">
+          <div class="k">Username</div>
+          <div class="v" id="acctUsername">—</div>
+        </div>
+
+        <div class="kv">
+          <div class="k">Email</div>
+          <div class="v" id="acctEmail">—</div>
+        </div>
+
+        <div class="row-actions">
+          <button class="btn-lite" id="showEmail" type="button">Show Email</button>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Security</div>
+
+        <form id="changePasswordForm" class="form">
+          <label class="field">
+            <span>Current password</span>
+            <input id="pwCurrent" type="password" autocomplete="current-password" required />
+          </label>
+
+          <label class="field">
+            <span>New password</span>
+            <input id="pwNew" type="password" autocomplete="new-password" minlength="8" required />
+          </label>
+
+          <label class="field">
+            <span>Confirm new password</span>
+            <input id="pwConfirm" type="password" autocomplete="new-password" minlength="8" required />
+          </label>
+
+       <button class="btn-primary" id="pwSubmitBtn" type="submit">
+   <span id="pwBtnText">Change password</span>
+  <span class="btn-spinner" id="pwSpinner" aria-hidden="true"></span>
+</button>
+  <div id="pwMsg" class="pw-msg"></div>
+  </form>
+      </div>
+
+ <div class="modal-footer">
+  <button class="btn-primary" id="logoutBtnModal" type="button">Logout</button>
+</div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop" id="dailyRewardsModal" aria-hidden="true">
+  <div class="modal-card daily-modal-card" role="dialog" aria-modal="true" aria-label="Daily rewards">
+    <div class="modal-head daily-modal-head">
+      <div class="modal-title daily-title">Daily Rewards</div>
+      <button class="modal-x" id="dailyRewardsClose" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body daily-modal-body">
+      <div class="daily-subtext">
+        Claim every day to build your streak and unlock bigger rewards.
+      </div>
+
+   <div class="daily-streak" id="dailyStreak"></div>
+
+<div class="daily-today" id="dailyTodayText"></div>
+
+      <button class="btn-primary daily-claim-btn" id="dailyClaimBtn" type="button">
+        Claim Daily Reward
+      </button>
+
+      <div class="form-hint" id="dailyMsg"></div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop" id="balanceSettingsModal" aria-hidden="true">
+  <div class="modal-card daily-modal-card" role="dialog" aria-modal="true" aria-label="Balance settings">
+    <div class="modal-head daily-modal-head">
+      <div class="modal-title daily-title">Balance Settings</div>
+      <button class="modal-x" id="balanceSettingsClose" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body daily-modal-body">
+      <div class="daily-subtext" id="balanceTxt">
+        BALANCE
+      </div>
+
+    <div class="balance-settings-box">
+  <div class="balance-settings-amount">
+    <span id="balanceSettingsAmount">0</span>
+    <span id="balanceSettingsUnit" class="balance-settings-unit"></span>
+  </div>
+</div>
+<div class="balance-accounts">
+  <div class="balance-accounts-head">
+    <div class="balance-accounts-title">Accounts</div>
+  </div>
+  <div class="balance-accounts-list" id="savingsAccountsList">
+    <div class="balance-account-empty" id="savingsEmptyState">No accounts yet.</div>
+  </div>
+  <div class="savings-detail" id="savingsDetail" aria-hidden="true">
+    <div class="savings-detail-head">
+      <div class="savings-detail-name" id="savingsDetailName">Account</div>
+
+      <div class="savings-detail-balance">
+        <span id="savingsDetailAmount">$0</span>
+      </div>
+
+      <button class="modal-x savings-detail-x" id="savingsDetailClose" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="savings-detail-body">
+      <div class="savings-detail-row">
+        <input id="savingsDetailWithdrawInput" class="savings-detail-input" type="text" inputmode="decimal"
+          placeholder="0.00" autocomplete="off" />
+        <button class="btn-primary savings-detail-btn" id="savingsDetailWithdrawBtn" type="button">Withdraw</button>
+      </div>
+
+      <div class="savings-detail-row">
+        <input id="savingsDetailDepositInput" class="savings-detail-input" type="text" inputmode="decimal"
+          placeholder="0.00" autocomplete="off" />
+        <button class="btn-primary savings-detail-btn" id="savingsDetailDepositBtn" type="button">Deposit</button>
+      </div>
+
+      <div class="form-hint" id="savingsDetailMsg"></div>
+
+      <button class="btn-primary savings-detail-delete" id="savingsDetailDeleteBtn" type="button">
+        Delete account
+      </button>
+    </div>
+  </div>
+  <button class="balance-plus-btn btn-primary" id="createSavingsBtn" type="button" aria-label="Create account">
+    <span aria-hidden="true">+</span>
+  </button>
+</div>
+    
+
+      <div class="form-hint" id="balanceSettingsMsg"></div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop" id="createSavingsModal" aria-hidden="true">
+  <div class="modal-card daily-modal-card" id="createAccount" role="dialog" aria-modal="true" aria-label="Create savings account">
+    <div class="modal-head daily-modal-head">
+      <div class="modal-title daily-title">Create Account</div>
+      <button class="modal-x" id="createSavingsClose" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body daily-modal-body" >
+    
+
+      <form class="form" id="createSavingsForm" autocomplete="off">
+        <label class="field">
+          <span>Account name</span>
+          <input id="savingsNameInput" type="text" maxlength="30" placeholder="e.g. Savings" required />
+        </label>
+
+        <label class="field">
+          <span>Deposit amount</span>
+          <input id="savingsDepositInput" type="text"  placeholder="0" />
+        </label>
+   <div class="form-hint" id="createSavingsMsg"></div>
+        <div class="balance-popup-actions">
+          <button class="btn-primary" id="createSavingsCancel" type="button" style="width: 65px;">Cancel</button>
+          <button class="btn-primary" id="createSavingsSave" type="submit" style="width: 65px;">Save</button>
+        </div>
+
+     
+      </form>
+    </div>
+  </div>
+</div>
+    <script src="/js/api/client.js"></script>
+    <script src="/js/api/authApi.js"></script>
+    <script src="/js/api/walletApi.js"></script>
+    <script src="/js/boot.js"></script>
+    <script src="/js/api/statsApi.js"></script>
+    <script src="/js/pages/topbar.js"></script>
+    <script src="/js/api/betHistoryApi.js"></script>
+
+    <script src="/js/pages/dashboard.js?v=20260225_3"></script>
+  </body>
+</html>
